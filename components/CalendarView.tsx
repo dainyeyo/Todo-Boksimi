@@ -202,7 +202,13 @@ export default function CalendarView({ tasks }: CalendarViewProps) {
   const selectedDateTasks = selectedDate ? getTasksForDate(selectedDate) : [];
 
   return (
-    <div className="w-full bg-gradient-to-br from-white/50 to-white/10 dark:from-[#1b1e1c]/40 dark:to-[#121514]/20 backdrop-blur-xl border border-white/50 dark:border-charcoal-850/40 rounded-[32px] p-6 shadow-[0_16px_50px_rgba(230,200,200,0.06)] dark:shadow-[0_16px_50px_rgba(0,0,0,0.2)] relative">
+    <div className="w-full bg-gradient-to-br from-white/50 to-white/10 dark:from-[#1b1e1c]/40 dark:to-[#121514]/20 backdrop-blur-xl border border-white/50 dark:border-charcoal-850/40 rounded-[32px] p-6 shadow-[0_16px_50px_rgba(15,23,42,0.04)] dark:shadow-[0_16px_50px_rgba(0,0,0,0.2)] relative overflow-hidden">
+      {/* 🎈 우측 상단 비누방울 복심이 데코 */}
+      <img 
+        src="/boksimi_bubble.png" 
+        alt="비누방울 복심이" 
+        className="absolute -top-3 -right-2.5 w-28 h-28 pointer-events-none select-none opacity-80 dark:opacity-70 hidden md:block hover:scale-105 transition-transform duration-500" 
+      />
       {error && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 bg-rose-500 text-white px-4 py-2.5 rounded-xl text-[10px] font-bold shadow-md border border-rose-450/20 dark:bg-rose-950/90">
           {error}
@@ -375,9 +381,12 @@ export default function CalendarView({ tasks }: CalendarViewProps) {
             {/* 할 일 목록 출력 */}
             <div className="max-h-[220px] overflow-y-auto space-y-3.5 mb-6 pr-1.5">
               {selectedDateTasks.length === 0 ? (
-                <p className="text-sm text-center text-stone-400 py-8 border border-dashed border-stone-200 rounded-2xl select-none">
-                  등록된 일정이 없습니다. 아래에서 할 일을 추가해 주개! 🐶
-                </p>
+                <div className="flex flex-col items-center justify-center py-6 border border-dashed border-slate-200 dark:border-charcoal-800/80 rounded-2xl select-none bg-slate-50/30 dark:bg-charcoal-900/10">
+                  <img src="/boksimi_rolling.png" alt="뒹굴 복심이" className="w-16 h-16 object-contain mb-2.5 opacity-90 animate-pulse-slow" />
+                  <p className="text-xs font-bold text-slate-400 dark:text-sage-400/70 text-center leading-relaxed">
+                    등록된 일정이 없습니다.<br />아래에서 할 일을 추가해 주개! 🐶
+                  </p>
+                </div>
               ) : (
                 selectedDateTasks.map((task) => {
                   const isMine = !task.userEmail || task.userEmail === "me";
