@@ -203,12 +203,6 @@ export default function CalendarView({ tasks }: CalendarViewProps) {
 
   return (
     <div className="w-full bg-gradient-to-br from-white/50 to-white/10 dark:from-[#1b1e1c]/40 dark:to-[#121514]/20 backdrop-blur-xl border border-white/50 dark:border-charcoal-850/40 rounded-[32px] p-6 shadow-[0_16px_50px_rgba(15,23,42,0.04)] dark:shadow-[0_16px_50px_rgba(0,0,0,0.2)] relative overflow-hidden">
-      {/* 🎈 우측 상단 비누방울 복심이 데코 */}
-      <img 
-        src="/boksimi_bubble.png" 
-        alt="비누방울 복심이" 
-        className="absolute -top-3 -right-2.5 w-28 h-28 pointer-events-none select-none opacity-80 dark:opacity-70 hidden md:block hover:scale-105 transition-transform duration-500" 
-      />
       {error && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 bg-rose-500 text-white px-4 py-2.5 rounded-xl text-[10px] font-bold shadow-md border border-rose-450/20 dark:bg-rose-950/90">
           {error}
